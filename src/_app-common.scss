@@ -21,8 +21,22 @@
         margin-top: 20%;
     }
 }
+.full-page {
+    background-image: url("~/assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+.btn-jsday {
+    color: #efb300;
+    background: rgba(0,0,0,.7);  // #22292f
+}
 
-//Action bar
+// Action bar
+.action-bar {
+    background-color: black;
+    color: #efb300;
+}
 ActionBar .action-bar-title {
     horizontal-align: center;
 }

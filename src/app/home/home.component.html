@@ -15,7 +15,12 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<FlexboxLayout class="page page-content full-page" flexDirection="column" flexGrow="1">
+    <FlexboxLayout flexDirection="column" flexGrow="1" backgroundColor="rgba(0, 0, 0, 0.7)">
+        <FlexboxLayout flexGrow="1.5"></FlexboxLayout>
+        <Image src="~/assets/images/logo.png" width="90%" style="margin-bottom: 256px"></Image>
+        <Button class="btn btn-primary btn-jsday" text="Agenda" (tap)="openAgenda($event)"></Button>
+        <Button class="btn btn-primary btn-jsday" text="Log in"></Button>
+        <FlexboxLayout flexGrow="1"></FlexboxLayout>
+    </FlexboxLayout>
+</FlexboxLayout>

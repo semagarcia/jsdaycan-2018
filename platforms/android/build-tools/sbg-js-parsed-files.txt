@@ -1,0 +1,9 @@
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/2.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/3.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/bundle.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/vendor.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/starter.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/4.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/tns-java-classes.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/0.js
+/Users/jlgi/Workspace/jsdaycan-2018/platforms/android/app/src/main/assets/app/1.js
