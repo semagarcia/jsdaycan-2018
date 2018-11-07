@@ -5,6 +5,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+import { TalksProvider } from "./providers/talks.service";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -17,6 +19,7 @@ import { AppComponent } from "./app.component";
     declarations: [
         AppComponent
     ],
+    providers: [TalksProvider],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

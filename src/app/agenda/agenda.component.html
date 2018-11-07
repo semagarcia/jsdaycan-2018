@@ -1,0 +1,58 @@
+<ActionBar class="action-bar">
+  <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+  <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()" ios.position="left">
+  </ActionItem>
+  <Label class="action-bar-title" text="Agenda"></Label>
+</ActionBar>
+
+<GridLayout tkExampleTitle tkToggleNavButton>
+  <TabView id="tabViewContainer">
+    <!-- First day -->
+    <StackLayout *tabItem="{title: '10 Nov.', iconSource: ''}">
+      <StackLayout>
+        <ListView [items]="_dataItems" class="list-group">
+          <ng-template let-slots="item" let-i="index" let-odd="odd" let-even="even">
+            <FlexboxLayout flexDirection="column">
+              <StackLayout orientation="vertical" class="list-group-item" backgroundColor="black">
+                <Label [text]="slots.slotTime" color="white"></Label>
+              </StackLayout>
+              <FlexboxLayout flexDirection="column" *ngFor="let talk of slots.talks">
+                <StackLayout orientation="horizontal" class="list-group-item" backgroundColor="yellow">
+                  <Label text="{{talk.track}} ({{talk.speaker}})"></Label>
+                </StackLayout>
+                <Label [text]="talk.title" textWrap="true" 
+                  class="h3" margin="15" (tap)="goToDetails(talk)">
+                </Label>
+              </FlexboxLayout>
+            </FlexboxLayout>
+          </ng-template>
+        </ListView>
+      </StackLayout>
+    </StackLayout>
+
+    <!-- Second day -->
+    <StackLayout *tabItem="{title: '11 Nov.', iconSource: ''}">
+      <!-- 'res://icon' -->
+      <StackLayout>
+        <Label text="Agenda para el segundo día" textWrap="true" class="m-15 h3 text-left"></Label>
+        <ListView [items]="_dataItems" (itemTap)="onItemTap($event)" class="list-group">
+          <ng-template let-country="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout orientation="horizontal" class="list-group-item">
+              <Label [text]="" textWrap="true"></Label>
+              <Label [text]="country.name"></Label>
+            </StackLayout>
+          </ng-template>
+        </ListView>
+      </StackLayout>
+    </StackLayout>
+  </TabView>
+</GridLayout>
