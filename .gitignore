@@ -5,6 +5,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Transpiled JS files from TS
+src/**/*.js
+
 # Platforms
 platforms/
 
