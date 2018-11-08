@@ -16,7 +16,51 @@
     <Label class="action-bar-title" text="Talk Details"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf013;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView sdkExampleTitle sdkToggleNavButton>
+    <FlexboxLayout flexDirection="column" flexGrow="1">
+        <!-- Header -->
+        <FlexboxLayout class="header-separator h2">
+            <Label class="m-15" textWrap="true" [text]="talkData?.title"></Label>
+        </FlexboxLayout>
+
+        <!-- Talk info -->
+        <FlexboxLayout class="m-15" flexDirection="column">
+            <FlexboxLayout>
+                <Label class="talk-detail-label" text="Track: "></Label>
+                <Label class="" text="{{talkData?.track}}"></Label>
+            </FlexboxLayout>
+            <FlexboxLayout>
+                <Label class="talk-detail-label" text="Hora: "></Label>
+                <Label class="" text="{{talkData?.slotTime}}"></Label>
+            </FlexboxLayout>
+            <FlexboxLayout>
+                <Label class="talk-detail-label" text="Descripción: "></Label>
+                <Label class="" text="{{talkData?.description}}"></Label>
+            </FlexboxLayout>
+        </FlexboxLayout>
+
+        <!-- Speaker info -->
+        <FlexboxLayout class="header-separator h2">
+            <Label class="m-15" text="Sobre el ponente"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="column">
+            <Label class="m-15" text="BIO"></Label>
+        </FlexboxLayout>
+        
+        <!-- My pics -->
+        <FlexboxLayout class="header-separator h2">
+            <Label class="m-15" text="Mis momentos"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout flexDirection="column">
+            <Button class="btn btn-primary btn-active btn-jsday" id="button" 
+                text="Comparte tus momentos del evento!" 
+                (tap)="onTap($event)">
+            </Button>
+            <FlexboxLayout flexDirection="row-reverse" flexWrap="wrap" justifyContent="space-around" alignItems="stretch" style="margin-left: 30px; margin-right: 30px">
+                <Image *ngFor="let image of imageTaken" [src]="image" 
+                    class="img-rounded" width="30%" style="margin-bottom: 30px;">
+                </Image>
+            </FlexboxLayout>
+        </FlexboxLayout>
+    </FlexboxLayout>
+</ScrollView>    

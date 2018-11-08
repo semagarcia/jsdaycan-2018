@@ -83,7 +83,12 @@ export class TalksProvider {
     getTalkById(talkId: string) {
         let result = null;
         this.data.forEach((slot) => {
-            result = slot.talks.filter((t) => t.id === talkId);
+            const slotTime = slot.slotTime;
+            const temp = slot.talks.filter((t) => t.id === talkId);
+            if (temp && temp.length > 0) {
+                temp[0].slotTime = slotTime;
+                result = temp[0];
+            }
         });
 
         return result;
