@@ -52,12 +52,13 @@
             <Label class="m-15" text="Mis momentos"></Label>
         </FlexboxLayout>
         <FlexboxLayout flexDirection="column">
-            <Button class="btn btn-primary btn-active btn-jsday" id="button" 
+            <Button class="btn btn-primary btn-jsday" id="button" 
                 text="Comparte tus momentos del evento!" 
                 (tap)="onTap($event)">
             </Button>
             <FlexboxLayout flexDirection="row-reverse" flexWrap="wrap" justifyContent="space-around" alignItems="stretch" style="margin-left: 30px; margin-right: 30px">
                 <Image *ngFor="let image of imageTaken" [src]="image" 
+                    (longPress)="onImageShare(image)"
                     class="img-rounded" width="30%" style="margin-bottom: 30px;">
                 </Image>
             </FlexboxLayout>

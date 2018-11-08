@@ -2,13 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 import { isAvailable, requestPermissions, takePicture } from "nativescript-camera";
+import { ShareFile } from "nativescript-share-file";
 import * as app from "tns-core-modules/application";
+import * as fs from "tns-core-modules/file-system";
 import { ImageAsset } from "tns-core-modules/image-asset";
 
 import { TalksProvider } from "./../providers/talks.service";
-
-import { LocalNotifications } from "nativescript-local-notifications";
-import { Color } from "tns-core-modules/color";
+// import { LocalNotifications } from "nativescript-local-notifications";
+// import { Color } from "tns-core-modules/color";
 
 @Component({
     selector: "TalkDetails",
@@ -19,6 +20,7 @@ import { Color } from "tns-core-modules/color";
 export class TalkDetailsComponent implements OnInit {
     talkData;
     imageTaken: Array<ImageAsset>;
+    shareFile: ShareFile;
     saveToGallery: boolean = true;
     keepAspectRatio: boolean = true;
     width: number = 300;
@@ -39,15 +41,15 @@ export class TalkDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        LocalNotifications.hasPermission();
-        this.x();
+        //LocalNotifications.hasPermission();
+        //this.x();
     }
 
     goBack(): void {
         this.routerExtSrv.backToPreviousPage();
     }
 
-    x() {
+    /*x() {
         LocalNotifications.schedule([{
             id: 1,
             title: 'The title',
@@ -71,7 +73,7 @@ export class TalkDetailsComponent implements OnInit {
                 console.log("scheduling error: " + error);
               }
           );
-    }
+    }*/
 
     onTap($event) {
         requestPermissions();
@@ -85,6 +87,10 @@ export class TalkDetailsComponent implements OnInit {
 
         takePicture(options)
             .then((imageAsset: ImageAsset) => {
+                /*console.log("imageAsset1: ", imageAsset);
+                console.log("imageAsset2: ", imageAsset.android);
+                console.log("imageAsset3: ", imageAsset.ios);
+                console.log("imageAsset4: ", imageAsset.nativeImage);*/
                 this.imageTaken.push(imageAsset);
                 this.imageTaken.push(imageAsset);
                 this.imageTaken.push(imageAsset);
@@ -92,5 +98,21 @@ export class TalkDetailsComponent implements OnInit {
             }).catch((err) => {
                 console.log(err.message);
             });
+    }
+
+    onImageShare(img: ImageAsset) {
+        this.shareFile = new ShareFile();
+        this.shareFile.open({
+            path: (app.android) ? img.android : img.ios,
+            intentTitle: "Share through...", // optional Android
+            rect: { // optional iPad
+                x: 110,
+                y: 110,
+                width: 0,
+                height: 0
+            },
+            options: false, // optional iOS
+            animated: true // optional iOS
+        });
     }
 }
