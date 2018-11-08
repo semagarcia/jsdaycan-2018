@@ -33,9 +33,9 @@
                 <Label class="talk-detail-label" text="Hora: "></Label>
                 <Label class="" text="{{talkData?.slotTime}}"></Label>
             </FlexboxLayout>
-            <FlexboxLayout>
-                <Label class="talk-detail-label" text="Descripción: "></Label>
-                <Label class="" text="{{talkData?.description}}"></Label>
+            <FlexboxLayout flexDirection="column">
+                <Label class="talk-detail-label" text="Descripción: " style="width: 100%"></Label>
+                <Label class="" textWrap="true" text="{{talkData?.description}}"></Label>
             </FlexboxLayout>
         </FlexboxLayout>
 
@@ -44,7 +44,10 @@
             <Label class="m-15" text="Sobre el ponente"></Label>
         </FlexboxLayout>
         <FlexboxLayout flexDirection="column">
-            <Label class="m-15" text="BIO"></Label>
+            <Image [src]="talkData?.speakerAvatar" class="" width="128" height="128"
+                style="margin-top: 30px; border-radius: 50%; border: 1px solid #efb300;">
+            </Image>
+            <Label class="m-15" textWrap="true" text="{{talkData?.speakerBio}}"></Label>
         </FlexboxLayout>
         
         <!-- My pics -->
