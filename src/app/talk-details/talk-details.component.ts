@@ -87,14 +87,9 @@ export class TalkDetailsComponent implements OnInit {
 
         takePicture(options)
             .then((imageAsset: ImageAsset) => {
-                /*console.log("imageAsset1: ", imageAsset);
-                console.log("imageAsset2: ", imageAsset.android);
-                console.log("imageAsset3: ", imageAsset.ios);
-                console.log("imageAsset4: ", imageAsset.nativeImage);*/
                 this.imageTaken.push(imageAsset);
                 this.imageTaken.push(imageAsset);
                 this.imageTaken.push(imageAsset);
-                console.log("Size: " + imageAsset.options.width + "x" + imageAsset.options.height);
             }).catch((err) => {
                 console.log(err.message);
             });
