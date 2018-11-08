@@ -26,7 +26,7 @@
                 <Label [text]="slots.slotTime" color="white"></Label>
               </StackLayout>
               <FlexboxLayout flexDirection="column" *ngFor="let talk of slots.talks">
-                <StackLayout orientation="horizontal" class="list-group-item" backgroundColor="yellow">
+                <StackLayout orientation="horizontal" class="list-group-item" backgroundColor="#efb300">
                   <Label text="{{talk.track}} ({{talk.speaker}})"></Label>
                 </StackLayout>
                 <Label [text]="talk.title" textWrap="true" 
